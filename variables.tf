@@ -99,7 +99,7 @@ variable "environment" {
       type  = optional(string)
     })), [])
     fleet = optional(object({
-      fleet_arn = string
+      fleet_arn = optional(string)
     }))
     registry_credential = optional(object({
       credential          = string
@@ -142,6 +142,11 @@ variable "environment" {
     ])
     error_message = "environment.environment_variables[*].type must be PARAMETER_STORE, PLAINTEXT, or SECRETS_MANAGER when specified."
   }
+
+  validation {
+    condition     = try(var.environment.fleet, null) == null || try(length(trimspace(var.environment.fleet.fleet_arn)) > 0, false)
+    error_message = "environment.fleet.fleet_arn is required when fleet is configured."
+  }
 }
 
 variable "primary_source" {
@@ -162,7 +167,7 @@ variable "primary_source" {
       target_url = optional(string)
     }))
     git_submodules_config = optional(object({
-      fetch_submodules = bool
+      fetch_submodules = optional(bool)
     }))
   })
 
@@ -191,6 +196,11 @@ variable "primary_source" {
   validation {
     condition     = try(var.primary_source.build_status_config, null) == null ? true : contains(["BITBUCKET", "GITHUB", "GITHUB_ENTERPRISE"], var.primary_source.type)
     error_message = "primary_source.build_status_config is supported only with BITBUCKET, GITHUB, and GITHUB_ENTERPRISE sources."
+  }
+
+  validation {
+    condition     = try(var.primary_source.git_submodules_config, null) == null || try(var.primary_source.git_submodules_config.fetch_submodules, null) != null
+    error_message = "primary_source.git_submodules_config.fetch_submodules is required when git_submodules_config is configured."
   }
 }
 
@@ -463,7 +473,7 @@ variable "secondary_sources" {
       target_url = optional(string)
     }))
     git_submodules_config = optional(object({
-      fetch_submodules = bool
+      fetch_submodules = optional(bool)
     }))
   }))
   default = []
