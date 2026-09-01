@@ -484,6 +484,14 @@ variable "secondary_sources" {
     ])
     error_message = "secondary_sources may contain at most 12 entries; each source type and location must be valid, auth is supported only for repository source types, build_status_config is supported only for BITBUCKET, GITHUB, and GITHUB_ENTERPRISE sources, and git_clone_depth must be at least 0."
   }
+
+  validation {
+    condition = alltrue([
+      for source in var.secondary_sources :
+      try(source.git_submodules_config, null) == null || try(source.git_submodules_config.fetch_submodules, null) != null
+    ])
+    error_message = "secondary_sources git_submodules_config.fetch_submodules is required when git_submodules_config is configured."
+  }
 }
 
 variable "source_version" {
