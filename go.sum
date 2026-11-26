@@ -32,8 +32,8 @@ github.com/aws/aws-sdk-go-v2/service/autoscaling v1.66.1 h1:kGlbhb5GMfkP/bcqcbt3
 github.com/aws/aws-sdk-go-v2/service/autoscaling v1.66.1/go.mod h1:z45kurrOonQepd3SN5LIgropAn1NGHwBn1yOMF+QVFU=
 github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs v1.69.1 h1:2ANEV0YkO/NlWxVmHBui7w7NE3lHW2sJji+OtjKJwck=
 github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs v1.69.1/go.mod h1:O7cQtpXZSk+P59gPFZIpcMpKwLk5d9zabFpV8fw68RM=
-github.com/aws/aws-sdk-go-v2/service/codebuild v1.78.12 h1:1leXm1hUObAS3Olyz3cHoLqxIYkjLCsG3e+nZBew09s=
-github.com/aws/aws-sdk-go-v2/service/codebuild v1.78.12/go.mod h1:nw9J9NmOsBl+w/y4A8wOLlzWtD3YC0Wd+iVGb10mxAg=
+github.com/aws/aws-sdk-go-v2/service/codebuild v1.79.0 h1:w5/h6ETIOHLJ+diFkNTmF3VP/BL66KVOjXNdZAJ2s6A=
+github.com/aws/aws-sdk-go-v2/service/codebuild v1.79.0/go.mod h1:nw9J9NmOsBl+w/y4A8wOLlzWtD3YC0Wd+iVGb10mxAg=
 github.com/aws/aws-sdk-go-v2/service/dynamodb v1.57.2 h1:J2ibOhlMLx1o6QwDFsHHfbQjaZ6t5LXodiLNuK6jbZA=
 github.com/aws/aws-sdk-go-v2/service/dynamodb v1.57.2/go.mod h1:Tj8VcffnduuewrM8HN8xQ9wzzez0CJ0FGSGEovq7Sgs=
 github.com/aws/aws-sdk-go-v2/service/ec2 v1.297.1 h1:9nfacm+uWgbdPaOplvJjxN50qgthexb7GOR/97ygc5o=
